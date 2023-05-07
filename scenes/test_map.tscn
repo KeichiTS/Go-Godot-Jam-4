@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dggy34sanoxot"]
+[gd_scene load_steps=4 format=3 uid="uid://dggy34sanoxot"]
 
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="1_1jag7"]
 [ext_resource type="Script" path="res://scripts/test_map.gd" id="1_4h73t"]
-[ext_resource type="PackedScene" path="res://scenes/dead_body.tscn" id="2_yunu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmq5"]
 size = Vector2(1152, 40)
@@ -24,7 +23,4 @@ offset_right = 1144.0
 offset_bottom = 648.0
 
 [node name="Player" parent="." instance=ExtResource("1_1jag7")]
-position = Vector2(8, 8)
-
-[node name="Dead_body" parent="." instance=ExtResource("2_yunu3")]
-position = Vector2(112, 24)
+position = Vector2(128, -24)
