@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dggy34sanoxot"]
+
+[ext_resource type="PackedScene" uid="uid://bcs4xhfj0aj5p" path="res://scenes/player.tscn" id="1_1jag7"]
+[ext_resource type="PackedScene" uid="uid://76rpw0ipxol1" path="res://scenes/dead_body.tscn" id="2_yunu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmq5"]
+size = Vector2(1152, 40)
+
+[node name="Test_map" type="Node"]
+
+[node name="platform" type="StaticBody2D" parent="."]
+position = Vector2(-408, -488)
+
+[node name="shape" type="CollisionShape2D" parent="platform"]
+position = Vector2(568, 628)
+shape = SubResource("RectangleShape2D_wdmq5")
+
+[node name="sprite" type="ColorRect" parent="platform"]
+offset_left = -8.0
+offset_top = 608.0
+offset_right = 1144.0
+offset_bottom = 648.0
+
+[node name="Player" parent="." instance=ExtResource("1_1jag7")]
+position = Vector2(8, 8)
+
+[node name="Dead_body" parent="." instance=ExtResource("2_yunu3")]
+position = Vector2(112, 24)
