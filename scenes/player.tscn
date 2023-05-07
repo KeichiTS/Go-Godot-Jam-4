@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcs4xhfj0aj5p"]
+[gd_scene load_steps=10 format=3 uid="uid://b08edfre7tjm8"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mne0d"]
-[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Nene.png" id="2_43f2l"]
+[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Player.png" id="2_5rsjd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u7tt"]
 size = Vector2(7, 11)
@@ -100,7 +100,7 @@ _data = {
 script = ExtResource("1_mne0d")
 
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_43f2l")
+texture = ExtResource("2_5rsjd")
 hframes = 7
 
 [node name="shape" type="CollisionShape2D" parent="."]

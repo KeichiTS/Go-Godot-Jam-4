@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://76rpw0ipxol1"]
+[gd_scene load_steps=3 format=3 uid="uid://720j117qrtlg"]
 
-[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Nene.png" id="1_6gc58"]
+[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Player.png" id="1_h5st0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txgga"]
 size = Vector2(11, 6)
@@ -9,7 +9,7 @@ size = Vector2(11, 6)
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("1_6gc58")
+texture = ExtResource("1_h5st0")
 hframes = 7
 frame = 6
 

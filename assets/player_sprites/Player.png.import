@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dociqot8k2wnr"
-path="res://.godot/imported/Nene.png-c0530a51ca9e3f8d151de763528e3416.ctex"
+path="res://.godot/imported/Player.png-6a7accbe6cd5c110c49bdc1aca524c82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_sprites/Nene.png"
-dest_files=["res://.godot/imported/Nene.png-c0530a51ca9e3f8d151de763528e3416.ctex"]
+source_file="res://assets/player_sprites/Player.png"
+dest_files=["res://.godot/imported/Player.png-6a7accbe6cd5c110c49bdc1aca524c82.ctex"]
 
 [params]
 
