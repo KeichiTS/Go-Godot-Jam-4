@@ -14,6 +14,9 @@ var move_status = on_ground
 enum{dead,alive}
 var status = alive
 
+var is_holding = false 
+var can_hold = false 
+
 var dead_body = preload('res://scenes/dead_body.tscn')
 
 func _ready():
@@ -24,6 +27,17 @@ func _physics_process(delta):
 	_chance_anim()
 	_die()
 	_restart()
+	
+	if can_hold and !is_holding:
+		if Input.is_action_pressed('carrying'):
+			can_hold = false
+			is_holding = true
+			$sprite.hide()
+	
+	if !can_hold and is_holding:
+		if Input.is_action_pressed('carrying'):
+			is_holding = false
+			$sprite.show()
 
 
 
@@ -77,6 +91,11 @@ func _die():
 func _restart():
 	if Input.is_action_just_pressed('restart'):
 		status = dead
+		
+func _on_item_detector_area_entered(area):
+	if area.is_in_group('objects') and !is_holding:
+		can_hold = true
+	
 
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #
@@ -103,6 +122,3 @@ func _restart():
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
 
-
-func _on_carrying_area_body_entered(body):
-	pass # Replace with function body.

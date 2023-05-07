@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="1_1jag7"]
 [ext_resource type="Script" path="res://scripts/test_map.gd" id="1_4h73t"]
-[ext_resource type="PackedScene" uid="uid://ceieygl5n7icl" path="res://scenes/carrying_object.tscn" id="3_goy2c"]
+[ext_resource type="PackedScene" uid="uid://dwx257vpuij3e" path="res://scenes/carrying_object.tscn" id="3_yst0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmq5"]
 size = Vector2(1152, 40)
@@ -28,5 +28,5 @@ offset_bottom = 648.0
 [node name="Player" parent="." instance=ExtResource("1_1jag7")]
 position = Vector2(128, -24)
 
-[node name="Carrying_object" parent="." instance=ExtResource("3_goy2c")]
-position = Vector2(48, 8)
+[node name="Carrying_object" parent="." instance=ExtResource("3_yst0u")]
+position = Vector2(43, 118)
