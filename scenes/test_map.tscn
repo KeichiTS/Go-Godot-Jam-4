@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dggy34sanoxot"]
+[gd_scene load_steps=5 format=3 uid="uid://dggy34sanoxot"]
 
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="1_1jag7"]
 [ext_resource type="Script" path="res://scripts/test_map.gd" id="1_4h73t"]
+[ext_resource type="PackedScene" uid="uid://ceieygl5n7icl" path="res://scenes/carrying_object.tscn" id="3_goy2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmq5"]
 size = Vector2(1152, 40)
@@ -11,6 +12,8 @@ script = ExtResource("1_4h73t")
 
 [node name="platform" type="StaticBody2D" parent="."]
 position = Vector2(-408, -488)
+collision_layer = 4
+collision_mask = 3
 
 [node name="shape" type="CollisionShape2D" parent="platform"]
 position = Vector2(568, 628)
@@ -24,3 +27,6 @@ offset_bottom = 648.0
 
 [node name="Player" parent="." instance=ExtResource("1_1jag7")]
 position = Vector2(128, -24)
+
+[node name="Carrying_object" parent="." instance=ExtResource("3_goy2c")]
+position = Vector2(48, 8)

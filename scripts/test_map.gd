@@ -6,9 +6,9 @@ var respawn_player = preload('res://scenes/player.tscn')
 var initial_position = Vector2(128,-24)
 
 func reload():
-	var play = respawn_player.instantiate()
-	play.global_position = initial_position
-	add_child(play)
+	var Player = respawn_player.instantiate()
+	Player.global_position = initial_position
+	add_child(Player)
 	
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceieygl5n7icl"]
+
+[ext_resource type="Script" path="res://scripts/carrying_object.gd" id="1_yvrd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu51n"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i334f"]
+size = Vector2(8, 6)
+
+[node name="Carrying_object" type="RigidBody2D" groups=["object"]]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_yvrd7")
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.866667, 1, 0, 1)
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fu51n")
+
+[node name="carrying_area" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Area2D" type="CollisionShape2D" parent="carrying_area"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_i334f")
+
+[connection signal="body_shape_entered" from="carrying_area" to="." method="_on_carrying_area_body_shape_entered"]

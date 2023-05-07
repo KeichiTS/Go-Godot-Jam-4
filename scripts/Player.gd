@@ -24,7 +24,8 @@ func _physics_process(delta):
 	_chance_anim()
 	_die()
 	_restart()
-	
+
+
 
 func _move(x):
 	if not is_on_floor():
@@ -101,3 +102,7 @@ func _restart():
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
+
+
+func _on_carrying_area_body_entered(body):
+	pass # Replace with function body.
