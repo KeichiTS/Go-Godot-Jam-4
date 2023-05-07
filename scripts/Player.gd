@@ -28,7 +28,7 @@ func _move(x):
 		move_status = on_ground
 		
 	if status == alive:
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 			velocity.y = jump_velocity
 
 		var direction = Input.get_axis("ui_left", "ui_right")
@@ -41,16 +41,17 @@ func _move(x):
 	move_and_slide()
 	
 func _chance_anim():
-		if move_status == on_ground and velocity.x == 0:
-			$anim.play("idle")
-		elif move_status == on_ground and velocity.x != 0:
-			$anim.play('walking')
-		elif move_status == on_air:
-			$anim.play("Jumping")
+	if status == alive:
+			if move_status == on_ground and velocity.x == 0:
+				$anim.play("idle")
+			elif move_status == on_ground and velocity.x != 0:
+				$anim.play('walking')
+			elif move_status == on_air:
+				$anim.play("Jumping")
 			
-		if velocity.x > 0: 
-			$sprite.scale.x = 1 
-		elif velocity.x ==0:
-			pass
-		else:
-			$sprite.scale.x = -1
+			if velocity.x > 0: 
+				$sprite.scale.x = 1 
+			elif velocity.x ==0:
+				pass
+			else:
+				$sprite.scale.x = -1
