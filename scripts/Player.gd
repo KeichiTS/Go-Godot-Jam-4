@@ -1,3 +1,6 @@
+#Code by: KeichiTS - 2023
+
+
 extends CharacterBody2D
 
 
@@ -11,13 +14,16 @@ var move_status = on_ground
 enum{dead,alive}
 var status = alive
 
+var dead_body = preload('res://scenes/dead_body.tscn')
+
 func _ready():
 	$anim.play("idle")
 
 func _physics_process(delta):
 	_move(delta)
 	_chance_anim()
-	
+	_die()
+	_restart()
 	
 
 func _move(x):
@@ -55,3 +61,43 @@ func _chance_anim():
 				pass
 			else:
 				$sprite.scale.x = -1
+
+
+func _die():
+	if status == dead:
+		if get_parent().has_method("reload"):
+			$anim.play("dying")
+			get_parent().reload()
+			var body = dead_body.instantiate()
+			body.global_position = global_position
+			get_parent().add_child(body)
+			queue_free()
+			
+func _restart():
+	if Input.is_action_just_pressed('restart'):
+		status = dead
+
+###################################################
+#     ~ It ain't much, but it's honest work ~     #
+###################################################
+##        #####################################   #
+##          #############################         #
+####            ######################            #
+#####            #####           #                #
+#######                                         ###
+#########  #                                   ####
+###########                              ## #######
+#########      ###               ###       ########
+#########     # ###             #####       #######
+########      #####             ####         ######
+########       ##                ##          ######
+#######               ##                    #######
+#######  ##           ####            ##      #####
+####### #####        ########       #######    ####
+########               #####                    ###
+#########                                       ###
+##########                                       ##
+#########                                         #
+###################################################
+#               ~ KeichiTS - 2023 ~               #
+###################################################
