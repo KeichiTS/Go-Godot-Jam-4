@@ -1,10 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcs4xhfj0aj5p"]
+[gd_scene load_steps=10 format=3 uid="uid://bcs4xhfj0aj5p"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mne0d"]
 [ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Nene.png" id="2_43f2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u7tt"]
 size = Vector2(7, 11)
+
+[sub_resource type="Animation" id="Animation_bxvqh"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_rvp58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_10kp2"]
+resource_name = "walking"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_3618c"]
+resource_name = "Jumping"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_qwaik"]
+resource_name = "dying"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aj4pq"]
+_data = {
+"Jumping": SubResource("Animation_3618c"),
+"RESET": SubResource("Animation_rvp58"),
+"dying": SubResource("Animation_qwaik"),
+"idle": SubResource("Animation_bxvqh"),
+"walking": SubResource("Animation_10kp2")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mne0d")
@@ -16,3 +106,8 @@ hframes = 7
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_1u7tt")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aj4pq")
+}

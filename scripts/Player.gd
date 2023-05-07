@@ -11,13 +11,22 @@ var move_status = on_ground
 enum{dead,alive}
 var status = alive
 
+func _ready():
+	$anim.play("idle")
+
 func _physics_process(delta):
-	move(delta)
+	_move(delta)
+	_chance_anim()
+	
+	
 
-func move(x):
+func _move(x):
 	if not is_on_floor():
+		move_status = on_air
 		velocity.y += gravity * x
-
+	else: 
+		move_status = on_ground
+		
 	if status == alive:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
@@ -27,8 +36,21 @@ func move(x):
 			velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
-		
+
+			
 	move_and_slide()
 	
-func chance_anim():
-	pass
+func _chance_anim():
+		if move_status == on_ground and velocity.x == 0:
+			$anim.play("idle")
+		elif move_status == on_ground and velocity.x != 0:
+			$anim.play('walking')
+		elif move_status == on_air:
+			$anim.play("Jumping")
+			
+		if velocity.x > 0: 
+			$sprite.scale.x = 1 
+		elif velocity.x ==0:
+			pass
+		else:
+			$sprite.scale.x = -1
