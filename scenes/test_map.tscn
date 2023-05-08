@@ -25,8 +25,25 @@ offset_top = 608.0
 offset_right = 1144.0
 offset_bottom = 648.0
 
+[node name="platform2" type="StaticBody2D" parent="."]
+position = Vector2(176, -912)
+scale = Vector2(0.775, 1.6)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="shape" type="CollisionShape2D" parent="platform2"]
+position = Vector2(568, 628)
+shape = SubResource("RectangleShape2D_wdmq5")
+
+[node name="sprite" type="ColorRect" parent="platform2"]
+offset_left = -8.0
+offset_top = 608.0
+offset_right = 1144.0
+offset_bottom = 648.0
+
 [node name="Player" parent="." instance=ExtResource("1_1jag7")]
-position = Vector2(128, -24)
+position = Vector2(24, -24)
 
 [node name="Carrying_object" parent="." instance=ExtResource("3_yst0u")]
-position = Vector2(43, 118)
+position = Vector2(240, 56)

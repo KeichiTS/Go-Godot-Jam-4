@@ -3,7 +3,7 @@
 extends Node
 
 var respawn_player = preload('res://scenes/player.tscn')
-var initial_position = Vector2(128,-24)
+var initial_position = Vector2(24,-24)
 
 func reload():
 	var Player = respawn_player.instantiate()

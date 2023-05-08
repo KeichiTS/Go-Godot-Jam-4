@@ -161,7 +161,7 @@ _data = {
 size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 4
+collision_mask = 20
 script = ExtResource("1_mne0d")
 
 [node name="sprite" type="Sprite2D" parent="."]
