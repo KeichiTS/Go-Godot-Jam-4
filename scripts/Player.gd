@@ -15,29 +15,38 @@ enum{dead,alive}
 var status = alive
 
 var is_holding = false 
-var can_hold = false 
+var can_hold = false
 
 var dead_body = preload('res://scenes/dead_body.tscn')
+var object = preload('res://scenes/carrying_object.tscn')
 
 func _ready():
 	$anim.play("idle")
+	$carrying_sprite.hide()
+	$sprite.show()
 
 func _physics_process(delta):
+	print('is_holding', is_holding)
 	_move(delta)
 	_chance_anim()
 	_die()
 	_restart()
 	
 	if can_hold and !is_holding:
-		if Input.is_action_pressed('carrying'):
-			can_hold = false
+		if Input.is_action_just_pressed('carrying'):
 			is_holding = true
 			$sprite.hide()
+			$carrying_sprite.show()
 	
 	if !can_hold and is_holding:
-		if Input.is_action_pressed('carrying'):
+		if Input.is_action_just_pressed('carrying'):
 			is_holding = false
 			$sprite.show()
+			$carrying_sprite.hide()
+			var obj = object.instantiate()
+			obj.global_position = $".".position
+			get_parent().add_child(obj)
+	
 
 
 
@@ -72,10 +81,12 @@ func _chance_anim():
 			
 			if velocity.x > 0: 
 				$sprite.scale.x = 1 
+				$carrying_sprite.scale.x = 1
 			elif velocity.x ==0:
 				pass
 			else:
 				$sprite.scale.x = -1
+				$carrying_sprite.scale.x = -1
 
 
 func _die():
@@ -92,10 +103,18 @@ func _restart():
 	if Input.is_action_just_pressed('restart'):
 		status = dead
 		
-func _on_item_detector_area_entered(area):
-	if area.is_in_group('objects') and !is_holding:
+
+
+func _on_item_detector_body_entered(body):
+	if body.is_in_group('objects') and !is_holding:
 		can_hold = true
-	
+		body.can_hold = true 
+
+
+func _on_item_detector_body_exited(body):
+	if body.is_in_group('objects'):
+		can_hold = false
+		body.can_hold = false
 
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #
@@ -121,4 +140,8 @@ func _on_item_detector_area_entered(area):
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
+
+
+
+
 

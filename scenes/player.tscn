@@ -161,7 +161,7 @@ _data = {
 size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 12
+collision_mask = 4
 script = ExtResource("1_mne0d")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -169,7 +169,6 @@ texture = ExtResource("2_5rsjd")
 hframes = 7
 
 [node name="carrying_sprite" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("3_crjty")
 hframes = 7
 
@@ -183,9 +182,12 @@ libraries = {
 }
 
 [node name="item_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 
 [node name="shape" type="CollisionShape2D" parent="item_detector"]
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_3ftuh")
 
-[connection signal="area_entered" from="item_detector" to="." method="_on_item_detector_area_entered"]
+[connection signal="body_entered" from="item_detector" to="." method="_on_item_detector_body_entered"]
+[connection signal="body_exited" from="item_detector" to="." method="_on_item_detector_body_exited"]
