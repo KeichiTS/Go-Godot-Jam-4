@@ -96,7 +96,6 @@ _data = {
 }
 
 [node name="Door" type="StaticBody2D" groups=["door"]]
-position = Vector2(196, 60)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_mdc7i")

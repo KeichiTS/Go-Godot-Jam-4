@@ -5,52 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://dwx257vpuij3e" path="res://scenes/carrying_object.tscn" id="3_yst0u"]
 [ext_resource type="PackedScene" uid="uid://ccw6jyqh30dmk" path="res://scenes/door.tscn" id="4_huy82"]
 [ext_resource type="PackedScene" uid="uid://c3d84tnoagpv2" path="res://scenes/button.tscn" id="5_0e8jt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmq5"]
-size = Vector2(1152, 40)
+[ext_resource type="PackedScene" uid="uid://bf21ln7hg4oka" path="res://scenes/ground_tile.tscn" id="6_rcuk5"]
 
 [node name="Test_map" type="Node"]
 script = ExtResource("1_4h73t")
 
-[node name="platform" type="StaticBody2D" parent="."]
-position = Vector2(-408, -488)
-collision_layer = 4
-collision_mask = 19
-
-[node name="shape" type="CollisionShape2D" parent="platform"]
-position = Vector2(568, 628)
-shape = SubResource("RectangleShape2D_wdmq5")
-
-[node name="sprite" type="ColorRect" parent="platform"]
-offset_left = -8.0
-offset_top = 608.0
-offset_right = 1144.0
-offset_bottom = 648.0
-
-[node name="platform2" type="StaticBody2D" parent="."]
-position = Vector2(176, -912)
-scale = Vector2(0.775, 1.6)
-collision_layer = 4
-collision_mask = 19
-metadata/_edit_group_ = true
-
-[node name="shape" type="CollisionShape2D" parent="platform2"]
-position = Vector2(568, 628)
-shape = SubResource("RectangleShape2D_wdmq5")
-
-[node name="sprite" type="ColorRect" parent="platform2"]
-offset_left = -8.0
-offset_top = 608.0
-offset_right = 1144.0
-offset_bottom = 648.0
-
 [node name="Player" parent="." instance=ExtResource("1_1jag7")]
-position = Vector2(24, -24)
+position = Vector2(23, -27)
 
 [node name="Carrying_object" parent="." instance=ExtResource("3_yst0u")]
-position = Vector2(131, 111)
+position = Vector2(246, 61)
 
 [node name="Door" parent="." instance=ExtResource("4_huy82")]
+position = Vector2(192, 48)
+collision_mask = 11
 
 [node name="Button" parent="Door" instance=ExtResource("5_0e8jt")]
-position = Vector2(-130, 20)
+position = Vector2(-87, 24)
+
+[node name="Ground_tile" parent="." instance=ExtResource("6_rcuk5")]
