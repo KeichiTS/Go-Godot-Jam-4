@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4t5gjtm6xqat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63hlw"]
+size = Vector2(4, 4)
+
+[node name="Press_and_door" type="Node2D"]
+
+[node name="pressure_plate" type="Area2D" parent="."]
+
+[node name="sprite" type="ColorRect" parent="pressure_plate"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.317647, 1, 0.415686, 1)
+
+[node name="shape" type="CollisionShape2D" parent="pressure_plate"]
+shape = SubResource("RectangleShape2D_63hlw")

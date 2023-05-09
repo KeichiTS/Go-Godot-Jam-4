@@ -5,6 +5,9 @@ extends Node
 var respawn_player = preload('res://scenes/player.tscn')
 var initial_position = Vector2(24,-24)
 
+func _ready():
+	$Door/anim.play("new_animation")
+
 func reload():
 	var Player = respawn_player.instantiate()
 	Player.global_position = initial_position

@@ -26,7 +26,6 @@ func _ready():
 	$sprite.show()
 
 func _physics_process(delta):
-	print('is_holding', is_holding)
 	_move(delta)
 	_chance_anim()
 	_die()
@@ -140,8 +139,3 @@ func _on_item_detector_body_exited(body):
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
-
-
-
-
-
