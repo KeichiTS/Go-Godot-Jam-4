@@ -10,38 +10,10 @@
 size = Vector2(1152, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gj1hk"]
-size = Vector2(21, 40)
+size = Vector2(21, 61)
 
 [sub_resource type="Animation" id="Animation_5cxxh"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door/shape:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10.5, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Door/sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_lc5i2"]
-resource_name = "closing"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,10 +21,10 @@ tracks/0/path = NodePath("Door/sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -21), Vector2(0, 0)]
+"values": [Vector2(0, -60)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,10 +33,38 @@ tracks/1/path = NodePath("Door/shape:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10.5, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_lc5i2"]
+resource_name = "closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(10.5, -1), Vector2(10.5, 20)]
+"values": [Vector2(0, -121), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/shape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10.5, -91), Vector2(10.5, -30)]
 }
 
 [sub_resource type="Animation" id="Animation_pnv3u"]
@@ -80,7 +80,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(10.5, 20), Vector2(10.5, -1)]
+"values": [Vector2(10.5, -31), Vector2(10.5, -91)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -92,7 +92,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -21)]
+"values": [Vector2(0, -61), Vector2(0, -121)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68n1s"]
@@ -147,20 +147,21 @@ position = Vector2(24, -24)
 position = Vector2(240, 56)
 
 [node name="Door" type="StaticBody2D" parent="." groups=["door"]]
-position = Vector2(196, 21)
+position = Vector2(196, 60)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("4_xes7f")
 metadata/_edit_group_ = true
 
 [node name="sprite" type="ColorRect" parent="Door"]
+offset_top = -60.0
 offset_right = 21.0
-offset_bottom = 40.0
+offset_bottom = 1.0
 color = Color(0.164706, 1, 1, 1)
 metadata/_edit_group_ = true
 
 [node name="shape" type="CollisionShape2D" parent="Door"]
-position = Vector2(10.5, 20)
+position = Vector2(10.5, -30)
 shape = SubResource("RectangleShape2D_gj1hk")
 metadata/_edit_group_ = true
 
@@ -171,7 +172,9 @@ libraries = {
 }
 
 [node name="Button" type="Area2D" parent="Door"]
-position = Vector2(-154, 58)
+position = Vector2(-130, 20)
+collision_layer = 0
+collision_mask = 17
 script = ExtResource("5_aa2e8")
 
 [node name="shape" type="CollisionShape2D" parent="Door/Button"]
