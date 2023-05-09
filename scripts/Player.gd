@@ -97,6 +97,10 @@ func _die():
 			body.global_position = global_position
 			get_parent().add_child(body)
 			queue_free()
+			if is_holding:
+				var obj = object.instantiate()
+				obj.global_position = $".".position + Vector2(0,-20)
+				get_parent().add_child(obj)
 			
 func _restart():
 	if Input.is_action_just_pressed('restart'):

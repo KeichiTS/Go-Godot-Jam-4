@@ -8,7 +8,7 @@ size = Vector2(6, 4)
 
 [node name="Carrying_object" type="RigidBody2D" groups=["objects"]]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 20
 script = ExtResource("1_uaouy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
