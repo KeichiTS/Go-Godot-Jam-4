@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccw6jyqh30dmk"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_mdc7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj1hk"]
+size = Vector2(21, 61)
+
+[sub_resource type="Animation" id="Animation_5cxxh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/shape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10.5, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_lc5i2"]
+resource_name = "closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -121), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/shape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10.5, -91), Vector2(10.5, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_pnv3u"]
+resource_name = "opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/shape:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10.5, -31), Vector2(10.5, -91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -61), Vector2(0, -121)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68n1s"]
+_data = {
+"RESET": SubResource("Animation_5cxxh"),
+"closing": SubResource("Animation_lc5i2"),
+"opening": SubResource("Animation_pnv3u")
+}
+
+[node name="Door" type="StaticBody2D" groups=["door"]]
+position = Vector2(196, 60)
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_mdc7i")
+metadata/_edit_group_ = true
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_top = -60.0
+offset_right = 21.0
+offset_bottom = 1.0
+color = Color(0.164706, 1, 1, 1)
+metadata/_edit_group_ = true
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(10.5, -30)
+shape = SubResource("RectangleShape2D_gj1hk")
+metadata/_edit_group_ = true
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_68n1s")
+}
