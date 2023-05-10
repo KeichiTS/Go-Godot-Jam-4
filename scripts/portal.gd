@@ -2,7 +2,7 @@
 
 extends Area2D
 
-@export_enum('Level_1', 'Level_2', 'Level_3', 'Level_4') var level: int
+@export_enum('Level_1', 'Level_2', 'Level_3', 'Level_4', 'Level_5') var level: int
 
 
 func _on_body_entered(body):
@@ -15,6 +15,8 @@ func _on_body_entered(body):
 			2:
 				get_tree().change_scene_to_file("res://scenes/Levels/level_4.tscn")
 			3:
+				get_tree().change_scene_to_file("res://scenes/Levels/level_5.tscn")
+			4:
 				get_tree().change_scene_to_file("res://scenes/Levels/level_1.tscn")
 
 ###################################################

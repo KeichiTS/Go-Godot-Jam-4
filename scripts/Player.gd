@@ -122,7 +122,7 @@ func _on_item_detector_body_exited(body):
 		body.can_hold = false
 
 func _on_dead_timer_timeout():
-	if time == 0:
+	if time == 1:
 		status = dead
 	else: 
 		time -= 1
@@ -152,7 +152,3 @@ func _on_dead_timer_timeout():
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
-
-
-
-
