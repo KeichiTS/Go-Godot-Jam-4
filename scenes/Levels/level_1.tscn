@@ -4,33 +4,41 @@
 [ext_resource type="PackedScene" uid="uid://bf21ln7hg4oka" path="res://scenes/ground_tile.tscn" id="1_fedyx"]
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="2_l0gwa"]
 [ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="3_fg73g"]
-[ext_resource type="Texture2D" uid="uid://diggoy73los7d" path="res://assets/objects_sprites/Bullet.png" id="5_e5d6d"]
-[ext_resource type="Script" path="res://scripts/Bullet.gd" id="5_whwri"]
+[ext_resource type="Script" path="res://scripts/arbalest.gd" id="6_5jn2u"]
+[ext_resource type="Texture2D" uid="uid://5xbrco4ub3dj" path="res://assets/objects_sprites/Arbalest.png" id="7_dev0g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p3cj3"]
-radius = 2.23607
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip2jw"]
+size = Vector2(15, 4)
 
 [node name="Level_1" type="Node"]
 script = ExtResource("1_fccgm")
 initial_position = Vector2(24, -34)
 
 [node name="Ground_tile" parent="." instance=ExtResource("1_fedyx")]
-layer_0/tile_data = PackedInt32Array(-1, 0, 2, 65535, 0, 2, 131071, 0, 2, 196607, 0, 2, 262143, 0, 2, 327679, 0, 2, 393215, 0, 2, 458751, 0, 2, 524287, 0, 2, 589823, 0, 2, 524288, 0, 2, 524289, 0, 2, 524290, 0, 2, 524291, 0, 2, 524293, 0, 2, 524294, 0, 2, 524292, 0, 2, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 458768, 0, 2, 393232, 0, 2, 327696, 0, 2, 262160, 0, 2, 196624, 0, 2, 131088, 0, 2, 65552, 0, 2, 16, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65524, 0, 2, -65523, 0, 2, -65522, 0, 2, -65521, 0, 2, -65520, 0, 2, -65533, 0, 2, 458752, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 0, 1, 458756, 0, 1, 458757, 0, 1, 458758, 0, 1, 458759, 0, 1, 458760, 0, 1, 458761, 0, 1, 458762, 0, 1, 458763, 0, 1, 458764, 0, 1, 458765, 0, 1, 458766, 0, 1, 458767, 0, 1, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393222, 0, 0, 393221, 0, 0, 393219, 0, 0, 393220, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, -262141, 0, 2, -196605, 0, 2, -131069, 0, 2, -196609, 0, 2, -131073, 0, 2, -65537, 0, 2)
+layer_0/tile_data = PackedInt32Array(-1, 0, 2, 65535, 0, 2, 131071, 0, 2, 196607, 0, 2, 262143, 0, 2, 327679, 0, 2, 393215, 0, 2, 458751, 0, 2, 524287, 0, 2, 589823, 0, 2, 524288, 0, 2, 524289, 0, 2, 524290, 0, 2, 524291, 0, 2, 524293, 0, 2, 524294, 0, 2, 524292, 0, 2, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 458768, 0, 2, 393232, 0, 2, 327696, 0, 2, 262160, 0, 2, 196624, 0, 2, 131088, 0, 2, 65552, 0, 2, 16, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65524, 0, 2, -65523, 0, 2, -65522, 0, 2, -65521, 0, 2, -65520, 0, 2, -65533, 0, 2, 458752, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 0, 1, 458756, 0, 1, 458757, 0, 1, 458758, 0, 1, 458759, 0, 1, 458760, 0, 1, 458761, 0, 1, 458762, 0, 1, 458763, 0, 1, 458764, 0, 1, 458765, 0, 1, 458766, 0, 1, 458767, 0, 1, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393222, 0, 0, 393221, 0, 0, 393219, 0, 0, 393220, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, -262141, 0, 2, -196605, 0, 2, -131069, 0, 2, -196609, 0, 2, -131073, 0, 2, -65537, 0, 2, 327693, 0, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_l0gwa")]
-position = Vector2(182, 83)
+position = Vector2(182, 82)
 
 [node name="Portal" parent="." instance=ExtResource("3_fg73g")]
 position = Vector2(240, 76)
 
-[node name="Bullet" type="Area2D" parent="."]
-position = Vector2(15, 86)
-script = ExtResource("5_whwri")
+[node name="Arbalest" type="StaticBody2D" parent="."]
+position = Vector2(8, 93)
+collision_layer = 4
+script = ExtResource("6_5jn2u")
 
-[node name="shape" type="CollisionShape2D" parent="Bullet"]
-shape = SubResource("CircleShape2D_p3cj3")
+[node name="muzzle" type="Marker2D" parent="Arbalest"]
+position = Vector2(13, 0)
 
-[node name="sprite" type="Sprite2D" parent="Bullet"]
-texture = ExtResource("5_e5d6d")
+[node name="sprite" type="Sprite2D" parent="Arbalest"]
+texture = ExtResource("7_dev0g")
 
-[connection signal="body_shape_entered" from="Bullet" to="Bullet" method="_on_body_shape_entered"]
+[node name="shape" type="CollisionShape2D" parent="Arbalest"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_ip2jw")
+
+[node name="Timer" type="Timer" parent="Arbalest"]
+autostart = true
+
+[connection signal="timeout" from="Arbalest/Timer" to="Arbalest" method="_on_timer_timeout"]

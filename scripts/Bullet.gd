@@ -16,3 +16,7 @@ func _process(delta):
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.is_in_group('player'):
 		body.status = 0 
+		queue_free()
+		
+	if body.is_in_group('ground'):
+		queue_free()

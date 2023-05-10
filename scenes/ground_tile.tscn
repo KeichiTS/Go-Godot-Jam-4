@@ -44,6 +44,6 @@ physics_layer_0/collision_mask = 27
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_rvknt")
 sources/0 = SubResource("TileSetAtlasSource_cj78i")
 
-[node name="Ground_tile" type="TileMap"]
+[node name="Ground_tile" type="TileMap" groups=["ground"]]
 tile_set = SubResource("TileSet_j7r6q")
 format = 2
