@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bf21ln7hg4oka" path="res://scenes/ground_tile.tscn" id="2_smabm"]
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="3_u6xa7"]
 [ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="4_2ees1"]
-[ext_resource type="PackedScene" uid="uid://digildqq7f21" path="res://scenes/well.tscn" id="5_mmk4f"]
+[ext_resource type="PackedScene" uid="uid://bo6luhtjrd2xf" path="res://scenes/spines.tscn" id="5_in1ca"]
 
 [node name="Level_3" type="Node"]
 script = ExtResource("1_qsuff")
@@ -18,22 +18,22 @@ position = Vector2(24, -34)
 
 [node name="Portal" parent="." instance=ExtResource("4_2ees1")]
 position = Vector2(240, 76)
-level = 1
+level = 2
 
-[node name="Well" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(104, 120)
 
-[node name="Well2" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines2" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(120, 120)
 
-[node name="Well3" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines3" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(136, 120)
 
-[node name="Well4" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines4" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(152, 120)
 
-[node name="Well5" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines5" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(168, 120)
 
-[node name="Well6" parent="." instance=ExtResource("5_mmk4f")]
+[node name="Spines6" parent="." instance=ExtResource("5_in1ca")]
 position = Vector2(184, 120)
