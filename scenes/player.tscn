@@ -160,7 +160,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ftuh"]
 size = Vector2(10, 12)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 20
 script = ExtResource("1_mne0d")
 

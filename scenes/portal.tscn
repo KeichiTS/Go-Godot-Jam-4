@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ic17vdesssu"]
+
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_81w1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua4w8"]
+size = Vector2(24, 40)
+
+[node name="Portal" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_81w1m")
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -20.0
+offset_right = 12.0
+offset_bottom = 20.0
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ua4w8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
