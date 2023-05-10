@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var to_the_left_to_the_left = false
+var to_the_left_to_the_left = false
 var velocity = 120
 
 func _ready():

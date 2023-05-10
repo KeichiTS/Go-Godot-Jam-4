@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwnrfj0deacsq"]
+
+[ext_resource type="Script" path="res://scripts/arbalest.gd" id="1_kqaap"]
+[ext_resource type="Texture2D" uid="uid://5xbrco4ub3dj" path="res://assets/objects_sprites/Arbalest.png" id="2_yvb5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip2jw"]
+size = Vector2(15, 4)
+
+[node name="Arbalest" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_kqaap")
+
+[node name="muzzle" type="Marker2D" parent="."]
+position = Vector2(13, 0)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yvb5t")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_ip2jw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
