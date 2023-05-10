@@ -32,24 +32,8 @@ func _physics_process(delta):
 	_chance_anim()
 	_die()
 	_restart()
-	
-	if can_hold and !is_holding:
-		if Input.is_action_just_pressed('carrying'):
-			is_holding = true
-			$sprite.hide()
-			$carrying_sprite.show()
-	
-	if !can_hold and is_holding:
-		if Input.is_action_just_pressed('carrying'):
-			is_holding = false
-			$sprite.show()
-			$carrying_sprite.hide()
-			var obj = object.instantiate()
-			obj.global_position = $".".position
-			get_parent().add_child(obj)
-	
-
-
+	_holding_status()
+	_restart_level()
 
 func _move(x):
 	if not is_on_floor():
@@ -109,6 +93,26 @@ func _restart():
 		status = dead
 		
 
+func _holding_status():
+	if can_hold and !is_holding:
+		if Input.is_action_just_pressed('carrying'):
+			is_holding = true
+			$sprite.hide()
+			$carrying_sprite.show()
+	
+	if !can_hold and is_holding:
+		if Input.is_action_just_pressed('carrying'):
+			is_holding = false
+			$sprite.show()
+			$carrying_sprite.hide()
+			var obj = object.instantiate()
+			obj.global_position = $".".position
+			get_parent().add_child(obj)
+	
+
+func _restart_level():
+	if Input.is_action_just_pressed('restart_level'):
+		get_parent().get_tree().reload_current_scene()
 
 func _on_item_detector_body_entered(body):
 	if body.is_in_group('objects') and !is_holding:
