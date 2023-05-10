@@ -189,5 +189,16 @@ collision_mask = 8
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_3ftuh")
 
+[node name="dead_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="countdown" type="Label" parent="canvas"]
+offset_right = 10.0
+offset_bottom = 26.0
+text = "5"
+
 [connection signal="body_entered" from="item_detector" to="." method="_on_item_detector_body_entered"]
 [connection signal="body_exited" from="item_detector" to="." method="_on_item_detector_body_exited"]
+[connection signal="timeout" from="dead_timer" to="." method="_on_dead_timer_timeout"]

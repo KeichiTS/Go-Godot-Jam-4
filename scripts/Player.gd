@@ -20,6 +20,8 @@ var can_hold = false
 var dead_body = preload('res://scenes/dead_body.tscn')
 var object = preload('res://scenes/carrying_object.tscn')
 
+var time = 5
+
 func _ready():
 	$anim.play("idle")
 	$carrying_sprite.hide()
@@ -119,6 +121,13 @@ func _on_item_detector_body_exited(body):
 		can_hold = false
 		body.can_hold = false
 
+func _on_dead_timer_timeout():
+	if time == 0:
+		status = dead
+	else: 
+		time -= 1
+		$canvas/countdown.text = str(time)
+
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #
 ###################################################
@@ -143,4 +152,7 @@ func _on_item_detector_body_exited(body):
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
+
+
+
 
