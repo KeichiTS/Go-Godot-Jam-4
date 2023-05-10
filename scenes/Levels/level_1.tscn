@@ -5,11 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="2_l0gwa"]
 [ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="3_fg73g"]
 [ext_resource type="PackedScene" uid="uid://bwnrfj0deacsq" path="res://scenes/arbalest.tscn" id="5_hkuju"]
-[ext_resource type="Script" path="res://scripts/Altar.gd" id="6_csag8"]
+[ext_resource type="PackedScene" uid="uid://ccw6jyqh30dmk" path="res://scenes/door.tscn" id="6_bsu1e"]
+[ext_resource type="PackedScene" uid="uid://ehhd7hk2e4c1" path="res://scenes/altar.tscn" id="7_64l5e"]
 [ext_resource type="PackedScene" uid="uid://dwx257vpuij3e" path="res://scenes/carrying_object.tscn" id="7_cbkwc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr244"]
-size = Vector2(16, 16)
 
 [node name="Level_1" type="Node"]
 script = ExtResource("1_fccgm")
@@ -25,27 +23,14 @@ position = Vector2(24, -34)
 position = Vector2(240, 76)
 
 [node name="Arbalest" parent="." instance=ExtResource("5_hkuju")]
-position = Vector2(10, 93)
+position = Vector2(12, 29)
 
-[node name="Altar" type="Area2D" parent="."]
-position = Vector2(172, 88)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("6_csag8")
+[node name="Door" parent="." instance=ExtResource("6_bsu1e")]
+position = Vector2(124, 95)
 
-[node name="shape" type="CollisionShape2D" parent="Altar"]
-shape = SubResource("RectangleShape2D_qr244")
-
-[node name="sprite" type="ColorRect" parent="Altar"]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0.890196, 0.921569, 0, 1)
+[node name="Altar" parent="Door" instance=ExtResource("7_64l5e")]
+position = Vector2(-78, -6)
 
 [node name="Carrying_object" parent="." instance=ExtResource("7_cbkwc")]
 position = Vector2(83, 86)
 collision_mask = 28
-
-[connection signal="area_entered" from="Altar" to="Altar" method="_on_area_entered"]
-[connection signal="body_entered" from="Altar" to="Altar" method="_on_body_entered"]

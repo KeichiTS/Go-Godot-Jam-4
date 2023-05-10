@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehhd7hk2e4c1"]
+
+[ext_resource type="Script" path="res://scripts/Altar.gd" id="1_fep1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr244"]
+size = Vector2(16, 16)
+
+[node name="Altar" type="Area2D"]
+position = Vector2(172, 88)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_fep1k")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qr244")
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.890196, 0.921569, 0, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
