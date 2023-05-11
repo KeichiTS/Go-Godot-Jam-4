@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://xensnfobb2iv"]
+
+[ext_resource type="Script" path="res://scripts/test_map.gd" id="1_tf82h"]
+[ext_resource type="PackedScene" uid="uid://bf21ln7hg4oka" path="res://scenes/ground_tile.tscn" id="2_vabfk"]
+[ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="3_v2cl6"]
+[ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="4_gclxy"]
+[ext_resource type="PackedScene" uid="uid://bo6luhtjrd2xf" path="res://scenes/spines.tscn" id="5_qedjf"]
+[ext_resource type="PackedScene" uid="uid://c42ga5jvyv3qa" path="res://scenes/lava_ball.tscn" id="6_wykwu"]
+
+[node name="Level_9" type="Node"]
+script = ExtResource("1_tf82h")
+initial_position = Vector2(232, -48)
+
+[node name="Ground_tile" parent="." instance=ExtResource("2_vabfk")]
+layer_0/tile_data = PackedInt32Array(-1, 0, 2, 65535, 0, 2, 131071, 0, 2, 196607, 0, 2, 262143, 0, 2, 327679, 0, 2, 393215, 0, 2, 458751, 0, 2, 524287, 0, 2, 589823, 0, 2, 524288, 0, 2, 524289, 0, 2, 524290, 0, 2, 524291, 0, 2, 524292, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 458768, 0, 2, 393232, 0, 2, 327696, 0, 2, 262160, 0, 2, 196624, 0, 2, 131088, 0, 2, 65552, 0, 2, 16, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65520, 0, 2, -65533, 0, 2, 458752, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 0, 1, 458756, 0, 1, -65536, 0, 2, -65535, 0, 2, -65534, 0, 2, -131061, 0, 2, -196597, 0, 2, -262133, 0, 2, -327669, 0, 2, -196592, 0, 2, -262128, 0, 2, -327664, 0, 2, -131056, 0, 2, 524298, 0, 2, 524299, 0, 2, 524293, 0, 2, 524294, 0, 2, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458764, 0, 2, 458765, 0, 2, 458766, 0, 2, 458767, 0, 2, 393227, 0, 0, 458763, 0, 2)
+
+[node name="Portal" parent="." instance=ExtResource("4_gclxy")]
+position = Vector2(13, 76)
+level = 8
+
+[node name="Spines" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(88, 120)
+
+[node name="Spines2" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(104, 120)
+
+[node name="Spines3" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(120, 120)
+
+[node name="Lava_ball" parent="Spines3" instance=ExtResource("6_wykwu")]
+
+[node name="Spines4" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(136, 120)
+
+[node name="Lava_ball" parent="Spines4" instance=ExtResource("6_wykwu")]
+
+[node name="Spines5" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(152, 120)
+
+[node name="Spines6" parent="." instance=ExtResource("5_qedjf")]
+position = Vector2(168, 120)
+
+[node name="Player" parent="." instance=ExtResource("3_v2cl6")]
+position = Vector2(232, -48)

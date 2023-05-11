@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c42ga5jvyv3qa"]
+
+[ext_resource type="Script" path="res://scripts/Lava_ball.gd" id="1_fru7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcsg"]
+size = Vector2(8, 8)
+
+[sub_resource type="Animation" id="Animation_wtrca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ytm57"]
+resource_name = "event"
+length = 2.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -48), Vector2(0, -48), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2c28s"]
+_data = {
+"RESET": SubResource("Animation_wtrca"),
+"event": SubResource("Animation_ytm57")
+}
+
+[node name="Lava_ball" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_fru7i")
+
+[node name="sprite" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+color = Color(1, 0, 0, 1)
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5wcsg")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2c28s")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

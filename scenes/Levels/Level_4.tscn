@@ -11,9 +11,6 @@
 [node name="Level_4" type="Node"]
 script = ExtResource("1_a5crx")
 
-[node name="Player" parent="." instance=ExtResource("2_ekoxd")]
-position = Vector2(23, -27)
-
 [node name="Carrying_object" parent="." instance=ExtResource("3_tmn65")]
 position = Vector2(246, 61)
 
@@ -30,3 +27,6 @@ layer_0/tile_data = PackedInt32Array(589823, 0, 2, 524287, 0, 2, 458751, 0, 2, 3
 [node name="Portal" parent="." instance=ExtResource("7_jrixw")]
 position = Vector2(242, 28)
 level = 3
+
+[node name="Player" parent="." instance=ExtResource("2_ekoxd")]
+position = Vector2(23, -27)

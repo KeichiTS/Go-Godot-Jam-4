@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbsrndam30gao"]
+
+[ext_resource type="Script" path="res://scripts/test_map.gd" id="1_s0v6b"]
+[ext_resource type="PackedScene" uid="uid://bf21ln7hg4oka" path="res://scenes/ground_tile.tscn" id="2_otcbo"]
+[ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="3_s3dub"]
+[ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="4_262wk"]
+[ext_resource type="PackedScene" uid="uid://bwnrfj0deacsq" path="res://scenes/arbalest.tscn" id="5_dy6ds"]
+
+[node name="Level_7" type="Node"]
+script = ExtResource("1_s0v6b")
+initial_position = Vector2(232, -48)
+
+[node name="Ground_tile" parent="." instance=ExtResource("2_otcbo")]
+layer_0/tile_data = PackedInt32Array(-1, 0, 2, 65535, 0, 2, 131071, 0, 2, 196607, 0, 2, 262143, 0, 2, 327679, 0, 2, 393215, 0, 2, 458751, 0, 2, 524287, 0, 2, 589823, 0, 2, 524288, 0, 2, 524289, 0, 2, 524290, 0, 2, 524291, 0, 2, 524293, 0, 2, 524294, 0, 2, 524292, 0, 2, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 458768, 0, 2, 393232, 0, 2, 327696, 0, 2, 262160, 0, 2, 196624, 0, 2, 131088, 0, 2, 65552, 0, 2, 16, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65520, 0, 2, -65533, 0, 2, 458752, 0, 2, 458753, 0, 2, 458754, 0, 2, 458755, 0, 2, 458756, 0, 2, 458757, 0, 2, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 458758, 0, 1, 458759, 0, 1, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, -65536, 0, 2, -65535, 0, 2, -65534, 0, 2, -131061, 0, 2, -196597, 0, 2, -262133, 0, 2, -327669, 0, 2, -196592, 0, 2, -262128, 0, 2, -327664, 0, 2, -131056, 0, 2, 393216, 0, 2, 393217, 0, 2, 393218, 0, 2, 327681, 0, 2, 327680, 0, 2, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 327682, 0, 2, 196609, 0, 0, 196608, 0, 0, 196610, 0, 0, 262147, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 1, 393219, 0, 2, 393220, 0, 1, 393221, 0, 1, 393222, 0, 0, 393223, 0, 0)
+
+[node name="Portal" parent="." instance=ExtResource("4_262wk")]
+position = Vector2(13, 28)
+level = 6
+
+[node name="Arbalest" parent="." instance=ExtResource("5_dy6ds")]
+position = Vector2(72, 77)
+
+[node name="Player" parent="." instance=ExtResource("3_s3dub")]
+position = Vector2(232, -48)
