@@ -52,7 +52,6 @@ func _move(x):
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 
-			
 	move_and_slide()
 	
 func _chance_anim():
@@ -107,7 +106,7 @@ func _holding_status():
 			var obj = object.instantiate()
 			obj.global_position = $".".position
 			get_parent().add_child(obj)
-	
+
 
 func _restart_level():
 	if Input.is_action_just_pressed('restart_level'):
