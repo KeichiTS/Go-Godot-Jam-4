@@ -73,7 +73,6 @@ func _chance_anim():
 				$sprite.scale.x = -1
 				$carrying_sprite.scale.x = -1
 
-
 func _die():
 	if status == dead:
 		if get_parent().has_method("reload"):
