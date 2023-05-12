@@ -4,6 +4,11 @@ extends StaticBody2D
 
 var projectile = preload('res://scenes/bullet.tscn')
 @export var to_the_left = false
+@export var time_to_shoot : int = 1 
+
+
+func _ready():
+	$Timer.wait_time = time_to_shoot
 
 func _on_timer_timeout():
 	var proj = projectile.instantiate()

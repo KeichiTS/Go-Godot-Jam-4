@@ -6,6 +6,7 @@ var body_counts = 0
 
 func _on_body_entered(body):
 	if body_counts == 0:
+		print(get_parent().name)
 		if get_parent().is_in_group('door'):
 			get_parent()._open_the_door()
 			$AnimatedSprite2D.play("inactive")
@@ -17,6 +18,8 @@ func _on_body_exited(body):
 		if get_parent().is_in_group('door'):
 			get_parent()._close_the_door()
 		$AnimatedSprite2D.play("active")
+		
+		
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #
 ###################################################

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://edgn5vyluhm0" path="res://assets/sprites_asepsprite/well.png" id="2_7llts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5k1s"]
-size = Vector2(16, 16)
+size = Vector2(32, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mp3p1"]
 atlas = ExtResource("2_7llts")
@@ -63,6 +63,7 @@ offset_bottom = 8.0
 color = Color(1, 0, 0.0156863, 1)
 
 [node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_a5k1s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
