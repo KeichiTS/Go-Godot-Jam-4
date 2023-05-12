@@ -1,20 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://720j117qrtlg"]
+[gd_scene load_steps=9 format=3 uid="uid://720j117qrtlg"]
 
-[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Player.png" id="1_h5st0"]
+[ext_resource type="Texture2D" uid="uid://dsiqup55ohuvo" path="res://assets/sprites_asepsprite/player.png" id="1_d45k2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rih5g"]
+atlas = ExtResource("1_d45k2")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajcv3"]
+atlas = ExtResource("1_d45k2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82wof"]
+atlas = ExtResource("1_d45k2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf03k"]
+atlas = ExtResource("1_d45k2")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndpcm"]
+atlas = ExtResource("1_d45k2")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q23sy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rih5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajcv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82wof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf03k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndpcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txgga"]
-size = Vector2(11, 6)
+size = Vector2(11, 14)
 
 [node name="Dead_body" type="RigidBody2D" groups=["dead_body"]]
+texture_filter = 1
 disable_mode = 1
 collision_layer = 16
 collision_mask = 28
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("1_h5st0")
-hframes = 7
-frame = 6
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q23sy")
+autoplay = "default"
+frame_progress = 0.895575
 
 [node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_txgga")

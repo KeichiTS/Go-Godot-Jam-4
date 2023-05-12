@@ -1,9 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3d84tnoagpv2"]
+[gd_scene load_steps=11 format=3 uid="uid://c3d84tnoagpv2"]
 
 [ext_resource type="Script" path="res://scripts/Button.gd" id="1_78kc0"]
+[ext_resource type="Texture2D" uid="uid://bk3qiywp8iqcg" path="res://assets/sprites_asepsprite/button.png" id="2_262w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3utm"]
 size = Vector2(33, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raoih"]
+atlas = ExtResource("2_262w8")
+region = Rect2(330, 0, 66, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu1wh"]
+atlas = ExtResource("2_262w8")
+region = Rect2(66, 0, 66, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oretv"]
+atlas = ExtResource("2_262w8")
+region = Rect2(132, 0, 66, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jd08"]
+atlas = ExtResource("2_262w8")
+region = Rect2(198, 0, 66, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45owc"]
+atlas = ExtResource("2_262w8")
+region = Rect2(264, 0, 66, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2mbe"]
+atlas = ExtResource("2_262w8")
+region = Rect2(0, 0, 66, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4ee0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raoih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu1wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oretv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jd08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45owc")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2mbe")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
 
 [node name="Button" type="Area2D"]
 collision_layer = 0
@@ -15,10 +71,19 @@ position = Vector2(16.5, 35.5)
 shape = SubResource("RectangleShape2D_b3utm")
 
 [node name="sprite" type="ColorRect" parent="."]
+visible = false
 offset_top = 31.0
 offset_right = 33.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 31)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_h4ee0")
+animation = &"inactive"
+autoplay = "active"
+centered = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

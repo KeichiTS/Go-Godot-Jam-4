@@ -1,15 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://b08edfre7tjm8"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mne0d"]
-[ext_resource type="Texture2D" uid="uid://dociqot8k2wnr" path="res://assets/player_sprites/Player.png" id="2_5rsjd"]
-[ext_resource type="Texture2D" uid="uid://pyw5ubl73qux" path="res://assets/player_sprites/Player_2.png" id="3_crjty"]
+[ext_resource type="Texture2D" uid="uid://dsiqup55ohuvo" path="res://assets/sprites_asepsprite/player.png" id="2_xh44d"]
+[ext_resource type="Texture2D" uid="uid://dylqvexldrpme" path="res://assets/sprites_asepsprite/player_carry.png" id="3_3jaf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u7tt"]
-size = Vector2(7, 11)
+size = Vector2(7, 15)
 
 [sub_resource type="Animation" id="Animation_3618c"]
 resource_name = "Jumping"
 length = 0.6
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,10 +18,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 4]
+"values": [0, 23, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -29,10 +30,10 @@ tracks/1/path = NodePath("carrying_sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 4]
+"values": [0, 24, 0]
 }
 
 [sub_resource type="Animation" id="Animation_rvp58"]
@@ -72,10 +73,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 5, 6]
+"values": [0, 22, 21, 13]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,16 +85,16 @@ tracks/1/path = NodePath("carrying_sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 5, 6]
+"values": [0, 22, 21, 13]
 }
 
 [sub_resource type="Animation" id="Animation_bxvqh"]
 resource_name = "idle"
-length = 0.4
 loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,10 +102,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2, 3, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -113,16 +114,17 @@ tracks/1/path = NodePath("carrying_sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_10kp2"]
 resource_name = "walking"
-length = 0.4
+length = 0.8
 loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,10 +132,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [0, 6, 7, 8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -142,10 +144,10 @@ tracks/1/path = NodePath("carrying_sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [0, 6, 7, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aj4pq"]
@@ -158,22 +160,26 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ftuh"]
-size = Vector2(10, 12)
+size = Vector2(11, 15)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 20
 script = ExtResource("1_mne0d")
 
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_5rsjd")
-hframes = 7
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xh44d")
+hframes = 5
+vframes = 5
 
 [node name="carrying_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_crjty")
-hframes = 7
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3jaf4")
+hframes = 5
+vframes = 5
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_1u7tt")
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -186,7 +192,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="shape" type="CollisionShape2D" parent="item_detector"]
-position = Vector2(-1, 2)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_3ftuh")
 
 [node name="dead_timer" type="Timer" parent="."]

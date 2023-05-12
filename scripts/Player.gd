@@ -64,13 +64,13 @@ func _chance_anim():
 				$anim.play("Jumping")
 			
 			if velocity.x > 0: 
-				$sprite.scale.x = 1 
-				$carrying_sprite.scale.x = 1
+				$sprite.scale.x = 0.5
+				$carrying_sprite.scale.x = 0.5
 			elif velocity.x ==0:
 				pass
 			else:
-				$sprite.scale.x = -1
-				$carrying_sprite.scale.x = -1
+				$sprite.scale.x = -0.5
+				$carrying_sprite.scale.x = -0.5
 
 func _die():
 	if status == dead:
