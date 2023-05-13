@@ -110,7 +110,7 @@ func _holding_status():
 
 func _restart_level():
 	if Input.is_action_just_pressed('restart_level'):
-		get_parent().get_tree().reload_current_scene()
+		get_parent().restart_level()
 
 func _on_item_detector_body_entered(body):
 	if body.is_in_group('objects') and !is_holding:

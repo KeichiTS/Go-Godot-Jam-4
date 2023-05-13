@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6ic17vdesssu"]
+[gd_scene load_steps=11 format=3 uid="uid://b6ic17vdesssu"]
 
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_81w1m"]
 [ext_resource type="Texture2D" uid="uid://cqko3r2bjtge5" path="res://assets/sprites_asepsprite/portal.png" id="2_ney00"]
@@ -42,6 +42,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_63tqg"]
+resource_name = "event"
+length = 1.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hq21a"]
+_data = {
+"event": SubResource("Animation_63tqg")
+}
+
 [node name="Portal" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_81w1m")
@@ -54,5 +63,10 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ujwf5")
 autoplay = "default"
 frame_progress = 0.506439
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hq21a")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

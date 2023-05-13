@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xensnfobb2iv"]
+[gd_scene load_steps=13 format=3 uid="uid://bu7eap4mvp6t8"]
 
 [ext_resource type="Script" path="res://scripts/test_map.gd" id="1_tf82h"]
 [ext_resource type="Texture2D" uid="uid://cl57dt6rw1am2" path="res://assets/sprites_asepsprite/bkg_jungle.png" id="2_bkban"]
@@ -7,10 +7,66 @@
 [ext_resource type="PackedScene" uid="uid://byfabqrvqnuk1" path="res://scenes/ground_tile_2.tscn" id="4_ma708"]
 [ext_resource type="PackedScene" uid="uid://bo6luhtjrd2xf" path="res://scenes/spines.tscn" id="5_qedjf"]
 [ext_resource type="PackedScene" uid="uid://c42ga5jvyv3qa" path="res://scenes/lava_ball.tscn" id="6_wykwu"]
+[ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="8_vu2ab"]
+
+[sub_resource type="Animation" id="Animation_fymlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_4tgju"]
+resource_name = "event1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 64), Vector2(384, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_kl0fg"]
+resource_name = "event2"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(384, 64), Vector2(128, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq7o3"]
+_data = {
+"RESET": SubResource("Animation_fymlb"),
+"event1": SubResource("Animation_4tgju"),
+"event2": SubResource("Animation_kl0fg")
+}
 
 [node name="Level_9" type="Node"]
 script = ExtResource("1_tf82h")
 initial_position = Vector2(232, -48)
+lifes = 4
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.360784, 0.360784, 0.360784, 1)
@@ -49,3 +105,25 @@ position = Vector2(168, 120)
 
 [node name="Player" parent="." instance=ExtResource("3_v2cl6")]
 position = Vector2(232, -48)
+
+[node name="Lifes" type="Label" parent="."]
+offset_left = 184.0
+offset_right = 249.0
+offset_bottom = 26.0
+text = "Lifes: XX"
+
+[node name="Time" type="Label" parent="."]
+offset_left = 92.0
+offset_right = 159.0
+offset_bottom = 26.0
+text = "Time: XXXX"
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qq7o3")
+}
+
+[node name="Game_logo" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-128, 64)
+texture = ExtResource("8_vu2ab")
