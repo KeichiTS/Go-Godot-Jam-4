@@ -15,7 +15,7 @@ func _ready():
 	if DIFICULTY.choosen_dificulty == DIFICULTY.dificulty.CASUAL:
 		lifes = 999
 	
-	$Lifes.text = "Lifes: " + str(lifes)
+	$Lifes.text = " : " + str(lifes)
 	$Transition.play("event1")
 
 func reload():
@@ -24,7 +24,7 @@ func reload():
 		Player.global_position = initial_position
 		add_child(Player)
 		lifes -= 1 
-		$Lifes.text = "Lifes: " + str(lifes)
+		$Lifes.text = " : " + str(lifes)
 	else: 
 		restart_level()
 	

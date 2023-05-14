@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn1fmtcotaot2"]
+[gd_scene load_steps=13 format=3 uid="uid://cn1fmtcotaot2"]
 
 [ext_resource type="Script" path="res://scripts/test_map.gd" id="1_0cye6"]
 [ext_resource type="Texture2D" uid="uid://cl57dt6rw1am2" path="res://assets/sprites_asepsprite/bkg_jungle.png" id="2_tw83v"]
+[ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="4_5r7hh"]
 [ext_resource type="PackedScene" uid="uid://byfabqrvqnuk1" path="res://scenes/ground_tile_2.tscn" id="4_l62mv"]
 [ext_resource type="PackedScene" uid="uid://b6ic17vdesssu" path="res://scenes/portal.tscn" id="5_m55u8"]
 [ext_resource type="PackedScene" uid="uid://b08edfre7tjm8" path="res://scenes/player.tscn" id="6_2fdc7"]
 [ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="7_76jri"]
+[ext_resource type="Texture2D" uid="uid://dsiqup55ohuvo" path="res://assets/sprites_asepsprite/player.png" id="7_bdjeh"]
 
 [sub_resource type="Animation" id="Animation_fymlb"]
 length = 0.001
@@ -79,7 +81,10 @@ offset_left = 8.0
 offset_top = 32.0
 offset_right = 248.0
 offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("4_5r7hh")
 text = "Use WASD or ARROWS to move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Portal" parent="." instance=ExtResource("5_m55u8")]
 position = Vector2(228, 76)
@@ -88,16 +93,34 @@ position = Vector2(228, 76)
 position = Vector2(24, -34)
 
 [node name="Lifes" type="Label" parent="."]
-offset_left = 184.0
-offset_right = 249.0
-offset_bottom = 26.0
-text = "Lifes: XX"
+offset_left = 208.0
+offset_right = 256.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_5r7hh")
+theme_override_font_sizes/font_size = 20
+text = " : xx"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sprite" type="Sprite2D" parent="Lifes"]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_bdjeh")
+hframes = 5
+vframes = 5
+frame = 11
 
 [node name="Time" type="Label" parent="."]
 offset_left = 92.0
 offset_right = 159.0
-offset_bottom = 26.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("4_5r7hh")
+theme_override_font_sizes/font_size = 20
 text = "Time: XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -108,3 +131,16 @@ libraries = {
 z_index = 1
 position = Vector2(-128, 64)
 texture = ExtResource("7_76jri")
+
+[node name="Title" type="Label" parent="Game_logo"]
+offset_left = -128.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_5r7hh")
+theme_override_font_sizes/font_size = 40
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1

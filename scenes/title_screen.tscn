@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbyhd656gfsxo"]
+[gd_scene load_steps=14 format=3 uid="uid://dbyhd656gfsxo"]
 
 [ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="1_jwoeb"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pe2ft"]
+[ext_resource type="Texture2D" uid="uid://dilums4m3ackk" path="res://assets/splash screen.png" id="2_odxgu"]
+[ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="3_o8qbi"]
 [ext_resource type="AudioStream" uid="uid://dup40w6o07ctu" path="res://sfx/collect5.wav" id="3_vxdn2"]
 
 [sub_resource type="Animation" id="Animation_fymlb"]
@@ -58,132 +60,6 @@ _data = {
 "event2": SubResource("Animation_kl0fg")
 }
 
-[sub_resource type="Animation" id="Animation_cp102"]
-resource_name = "Options"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Options:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(256, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Title:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Play!:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Options:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_28kpw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Options:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(256, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Title:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Play!:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Options:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_do5v4"]
 resource_name = "Ok"
 tracks/0/type = "value"
@@ -196,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(256, 0)]
+"values": [Vector2(0, 0), Vector2(264, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -241,10 +117,172 @@ tracks/4/path = NodePath("../Options:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Options:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cp102"]
+resource_name = "Options"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(264, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Play!:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("../Options:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Options:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_28kpw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(264, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Play!:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Options:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Options:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxcew"]
@@ -259,20 +297,28 @@ script = ExtResource("1_pe2ft")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(128, 64)
-texture = ExtResource("1_jwoeb")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_odxgu")
 
 [node name="Title" type="Label" parent="."]
-offset_left = 96.0
-offset_top = 32.0
-offset_right = 163.0
-offset_bottom = 58.0
-text = "Norvana"
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 51.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_font_sizes/font_size = 64
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play!" type="Button" parent="."]
-offset_left = 104.0
+offset_left = 105.0
 offset_top = 88.0
-offset_right = 149.0
+offset_right = 150.0
 offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_font_sizes/font_size = 22
 text = "Play!"
 
 [node name="Sfx" type="AudioStreamPlayer" parent="."]
@@ -288,23 +334,42 @@ z_index = 1
 position = Vector2(-128, 64)
 texture = ExtResource("1_jwoeb")
 
+[node name="Title" type="Label" parent="Game_logo"]
+offset_left = -128.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_font_sizes/font_size = 40
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Options" type="VBoxContainer" parent="."]
-offset_left = 256.0
-offset_right = 416.0
-offset_bottom = 83.0
+anchors_preset = -1
+offset_left = 264.0
+offset_right = 520.0
+offset_bottom = 128.0
+auto_translate = false
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Options"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+alignment = 1
 
 [node name="Label" type="Label" parent="Options/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o8qbi")
 theme_override_font_sizes/font_size = 10
 text = "mode:"
 
 [node name="DificultyOpt" type="OptionButton" parent="Options/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o8qbi")
 theme_override_font_sizes/font_size = 10
 flat = true
 item_count = 2
@@ -321,11 +386,13 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="Options/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o8qbi")
 theme_override_font_sizes/font_size = 10
 text = "display mode:"
 
 [node name="ViewOpt" type="OptionButton" parent="Options/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o8qbi")
 theme_override_font_sizes/font_size = 10
 flat = true
 item_count = 2
@@ -337,14 +404,16 @@ popup/item_1/id = 1
 
 [node name="Ok" type="Button" parent="Options"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o8qbi")
 text = "Ok
 "
 
 [node name="Options2" type="Button" parent="."]
-offset_left = 185.0
-offset_top = 95.0
+offset_left = 209.0
+offset_top = 108.0
 offset_right = 255.0
 offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("3_o8qbi")
 text = "Options
 "
 
