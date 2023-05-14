@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgg67hj7lh44u"]
+[gd_scene load_steps=3 format=3 uid="uid://dgg67hj7lh44u"]
 
 [ext_resource type="Script" path="res://scripts/GAME.gd" id="1_4owdp"]
+[ext_resource type="AudioStream" uid="uid://b0hc1x00qskd" path="res://Music/Catch The Mystery.WAV" id="2_3n5am"]
 
 [node name="GAME" type="Node"]
 script = ExtResource("1_4owdp")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3n5am")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
