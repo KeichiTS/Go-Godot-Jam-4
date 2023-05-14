@@ -190,6 +190,7 @@ _data = {
 size = Vector2(11, 15)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 collision_mask = 20
 script = ExtResource("1_mne0d")
 
