@@ -110,6 +110,7 @@ func _die():
 			var body = dead_body.instantiate()
 			body.global_position = global_position
 			get_parent().add_child(body)
+			GAME.total_deads += 1
 			queue_free()
 			if is_holding:
 				var obj = object.instantiate()

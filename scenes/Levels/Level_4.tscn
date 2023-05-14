@@ -92,6 +92,17 @@ layer_0/tile_data = PackedInt32Array(-524287, 131074, 1, -458751, 131074, 1, -39
 [node name="Player" parent="." instance=ExtResource("2_ekoxd")]
 position = Vector2(23, -27)
 
+[node name="Instruction" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("9_25dsh")
+text = "Press R to instantly petrify"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qq7o3")

@@ -31,6 +31,7 @@ func reload():
 func restart_level():
 	$Transition.play("event2")
 	await $Transition.animation_finished
+	GAME.total_deads += 1 
 	get_tree().reload_current_scene()
 	
 func change_level():

@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbyhd656gfsxo"]
+[gd_scene load_steps=18 format=3 uid="uid://dbyhd656gfsxo"]
 
 [ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="1_jwoeb"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pe2ft"]
 [ext_resource type="Texture2D" uid="uid://dilums4m3ackk" path="res://assets/splash screen.png" id="2_odxgu"]
 [ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="3_o8qbi"]
 [ext_resource type="AudioStream" uid="uid://dup40w6o07ctu" path="res://sfx/collect5.wav" id="3_vxdn2"]
+[ext_resource type="Texture2D" uid="uid://inuxeh5fimro" path="res://assets/objects_sprites/xs2BZp.png" id="6_5e060"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahym"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_fymlb"]
 length = 0.001
@@ -59,6 +63,12 @@ _data = {
 "event1": SubResource("Animation_4tgju"),
 "event2": SubResource("Animation_kl0fg")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4t45"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2l56"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_do5v4"]
 resource_name = "Ok"
@@ -312,13 +322,29 @@ text = "Tomb Escape"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Title2" type="Label" parent="."]
+offset_top = 120.0
+offset_right = 80.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_font_sizes/font_size = 8
+text = "A game by: KeichiTS and Jaspior
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Play!" type="Button" parent="."]
 offset_left = 105.0
 offset_top = 88.0
 offset_right = 150.0
 offset_bottom = 119.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_o8qbi")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahym")
 text = "Play!"
 
 [node name="Sfx" type="AudioStreamPlayer" parent="."]
@@ -348,7 +374,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="VBoxContainer" parent="."]
-anchors_preset = -1
 offset_left = 264.0
 offset_right = 520.0
 offset_bottom = 128.0
@@ -404,7 +429,10 @@ popup/item_1/id = 1
 
 [node name="Ok" type="Button" parent="Options"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4t45")
 text = "Ok
 "
 
@@ -413,7 +441,10 @@ offset_left = 209.0
 offset_top = 108.0
 offset_right = 255.0
 offset_bottom = 126.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_o8qbi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m2l56")
 text = "Options
 "
 
@@ -422,6 +453,11 @@ root_node = NodePath("../Options2")
 libraries = {
 "": SubResource("AnimationLibrary_yxcew")
 }
+
+[node name="Xs2bZp" type="Sprite2D" parent="."]
+position = Vector2(16, 112)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_5e060")
 
 [connection signal="pressed" from="Play!" to="." method="_on_play_pressed"]
 [connection signal="item_selected" from="Options/HBoxContainer/DificultyOpt" to="." method="_on_dificulty_opt_item_selected"]

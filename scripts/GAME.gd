@@ -3,7 +3,9 @@
 extends Node
 
 var time = 0
-var best_time = 0
+var best_time = 999
+var total_deads = 0
+var stoped = false
 
 func _ready():
 	$Music.play()
@@ -15,7 +17,8 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	time += 1
+	if stoped == false:
+		time += 1
 
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #

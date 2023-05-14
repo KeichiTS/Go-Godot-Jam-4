@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bie1s6bg5rfmw"]
+[gd_scene load_steps=10 format=3 uid="uid://bie1s6bg5rfmw"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_f60as"]
 [ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="2_w7sfm"]
 [ext_resource type="AudioStream" uid="uid://dup40w6o07ctu" path="res://sfx/collect5.wav" id="3_xjtxk"]
+[ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="4_s25go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yojf8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_fymlb"]
 length = 0.001
@@ -66,34 +70,50 @@ position = Vector2(128, 64)
 texture = ExtResource("2_w7sfm")
 
 [node name="thks" type="Label" parent="."]
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 256.0
-offset_bottom = 42.0
+offset_bottom = 50.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_s25go")
+theme_override_font_sizes/font_size = 23
 text = "Thanks for Playing!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="time" type="Label" parent="."]
-offset_top = 40.0
+offset_top = 48.0
 offset_right = 256.0
-offset_bottom = 66.0
+offset_bottom = 74.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_s25go")
+theme_override_font_sizes/font_size = 23
 text = "Your time:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="best_time" type="Label" parent="."]
-offset_top = 64.0
+offset_top = 72.0
 offset_right = 256.0
-offset_bottom = 90.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_s25go")
+theme_override_font_sizes/font_size = 23
 text = "Record:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="play_again" type="Button" parent="."]
 offset_left = 83.0
-offset_top = 88.0
+offset_top = 94.0
 offset_right = 174.0
-offset_bottom = 119.0
+offset_bottom = 125.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_s25go")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yojf8")
 text = "Play again!"
 
 [node name="Sfx" type="AudioStreamPlayer" parent="."]
@@ -108,5 +128,18 @@ libraries = {
 z_index = 1
 position = Vector2(-128, 64)
 texture = ExtResource("2_w7sfm")
+
+[node name="Title" type="Label" parent="Game_logo"]
+offset_left = -128.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_s25go")
+theme_override_font_sizes/font_size = 40
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="play_again" to="." method="_on_play_again_pressed"]

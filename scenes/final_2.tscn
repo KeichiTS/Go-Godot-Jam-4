@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=3 uid="uid://s4vnckd3bhel"]
+
+[ext_resource type="Script" path="res://scripts/final_1.gd" id="1_20ym1"]
+[ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="2_8mxip"]
+[ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="3_wrvdm"]
+[ext_resource type="Texture2D" uid="uid://d4hvsdh5mfsuv" path="res://assets/objects_sprites/URBE.png" id="4_vivtf"]
+
+[sub_resource type="Animation" id="Animation_fymlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_4tgju"]
+resource_name = "event1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 64), Vector2(384, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_kl0fg"]
+resource_name = "event2"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(384, 64), Vector2(128, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq7o3"]
+_data = {
+"RESET": SubResource("Animation_fymlb"),
+"event1": SubResource("Animation_4tgju"),
+"event2": SubResource("Animation_kl0fg")
+}
+
+[node name="Final_2" type="Node"]
+script = ExtResource("1_20ym1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(128, 64)
+texture = ExtResource("2_8mxip")
+
+[node name="Final_text" type="Label" parent="."]
+offset_top = 63.0
+offset_right = 256.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("3_wrvdm")
+theme_override_font_sizes/font_size = 10
+text = "\"Alex managed to escape! But he didn't prove to be such a good explorer, dying a few times along the way. The gods lifted the curse, but only gave Alex enough money for a URBE ride back home.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Plot1" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 48.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_wrvdm")
+theme_override_font_sizes/font_size = 32
+text = "Final 2 of 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qq7o3")
+}
+
+[node name="Game_logo" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-128, 64)
+texture = ExtResource("2_8mxip")
+
+[node name="Title" type="Label" parent="Game_logo"]
+offset_left = -128.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_wrvdm")
+theme_override_font_sizes/font_size = 40
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skip" type="Button" parent="."]
+offset_left = 226.0
+offset_top = 109.0
+offset_right = 254.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("3_wrvdm")
+text = "Skip"
+
+[node name="Urbe" type="Sprite2D" parent="."]
+position = Vector2(128, 56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vivtf")
+
+[node name="Plot4" type="Label" parent="."]
+offset_top = 112.0
+offset_right = 256.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0.764706, 0.984314, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_wrvdm")
+theme_override_font_sizes/font_size = 15
+text = "LESS dies is MORE treasure!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Deads" type="Label" parent="."]
+offset_top = 82.0
+offset_right = 256.0
+offset_bottom = 122.0
+theme_override_colors/font_outline_color = Color(1, 0.843137, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_wrvdm")
+theme_override_font_sizes/font_size = 10
+text = "Deads: "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

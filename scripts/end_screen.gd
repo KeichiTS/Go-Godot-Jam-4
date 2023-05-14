@@ -5,7 +5,7 @@ extends Node
 
 func _ready():
 	$Transition.play("event1")
-	if GAME.time > GAME.best_time:
+	if GAME.time < GAME.best_time:
 		GAME.best_time = GAME.time
 	
 	$time.text = "Your time: " + str(GAME.time) + "s"
@@ -21,7 +21,7 @@ func _on_play_again_pressed():
 	$Sfx.play()
 	$Transition.play("event2")
 	await $Transition.animation_finished
-	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/plot_screen.tscn")
 
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #

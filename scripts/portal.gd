@@ -111,7 +111,14 @@ func _on_body_entered(body):
 				_play_anim()
 				$anim.play("event")
 				await $anim.animation_finished
-				get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+				GAME.stoped = true
+				if GAME.total_deads <= 45: 
+					get_tree().change_scene_to_file("res://scenes/final_1.tscn")
+				elif GAME.total_deads > 45 and GAME.total_deads <= 70:
+					get_tree().change_scene_to_file("res://scenes/final_2.tscn")
+				else:
+					get_tree().change_scene_to_file("res://scenes/final_3.tscn")
+				
 
 func _play_anim():
 	get_parent().change_level()
