@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	if body.is_in_group('player') and body.is_holding == true: 
 		body.is_holding = true
 		body._holding_status()
+		$AnimatedSprite2D.play("active")
 		
 	if body.is_in_group('objects'):
 		$Sfx.play()

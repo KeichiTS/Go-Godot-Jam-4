@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c42ga5jvyv3qa"]
+[gd_scene load_steps=12 format=3 uid="uid://c42ga5jvyv3qa"]
 
 [ext_resource type="Script" path="res://scripts/Lava_ball.gd" id="1_fru7i"]
 [ext_resource type="AudioStream" uid="uid://yoxv0fn85d0g" path="res://sfx/echosplosion.wav" id="2_hy3va"]
+[ext_resource type="Texture2D" uid="uid://ewocl3vugh82" path="res://assets/sprites_asepsprite/bullet.png" id="3_wihoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcsg"]
 size = Vector2(8, 8)
@@ -41,7 +42,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 1.1, 1.5),
@@ -68,6 +69,35 @@ _data = {
 "event": SubResource("Animation_ytm57")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u83me"]
+atlas = ExtResource("3_wihoh")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tx83"]
+atlas = ExtResource("3_wihoh")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lo6n"]
+atlas = ExtResource("3_wihoh")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3s07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u83me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tx83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lo6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Lava_ball" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_fru7i")
@@ -90,5 +120,11 @@ libraries = {
 [node name="Sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hy3va")
 volume_db = -15.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_t3s07")
+autoplay = "default"
+frame_progress = 0.821003
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

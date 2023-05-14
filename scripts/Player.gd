@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var jump_velocity : int = -400.0
 @export var gravity : int = 2000
 
+var coyote_jump = false
+
 enum{on_ground, on_air}
 var move_status = on_ground
 
@@ -24,7 +26,18 @@ var time = 5
 
 var play_dead_sound = false 
 
+
+
 func _ready():
+	
+	if DIFICULTY.choosen_dificulty == DIFICULTY.dificulty.NORMAL:
+		time = 5
+	if DIFICULTY.choosen_dificulty == DIFICULTY.dificulty.CASUAL:
+		time = 999
+		
+	$canvas/countdown.text = str(time)
+	
+	
 	$anim.play("idle")
 	$carrying_sprite.hide()
 	$sprite.show()
@@ -46,17 +59,28 @@ func _move(x):
 			move_status = on_ground
 			
 		if status == alive:
-			if Input.is_action_just_pressed("ui_jump") and is_on_floor():
-				$Sfx/jump.play()
-				velocity.y = jump_velocity
+			if is_on_floor() or coyote_jump:
+				if Input.is_action_just_pressed("ui_jump"):
+					$Sfx/jump.play()
+					velocity.y = jump_velocity
+					coyote_jump = false
 
 			var direction = Input.get_axis("ui_left", "ui_right")
 			if direction:
 				velocity.x = direction * speed
 			else:
 				velocity.x = move_toward(velocity.x, 0, speed)
-
+		
+		var was_on_floor = is_on_floor()
+		
+		
 		move_and_slide()
+		
+		var left_ground = not is_on_floor() and was_on_floor
+		if left_ground and velocity.y >= 0:
+			print("pulou")
+			coyote_jump = true
+			$CoyoteTime.start()
 	
 func _chance_anim():
 	if status == alive:
@@ -160,3 +184,7 @@ func _on_dead_timer_timeout():
 ###################################################
 #               ~ KeichiTS - 2023 ~               #
 ###################################################
+
+
+func _on_coyote_time_timeout():
+	coyote_jump = false

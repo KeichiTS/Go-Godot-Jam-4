@@ -12,6 +12,9 @@ func _process(delta):
 	$Time.text = "Time: " + str(time)
 
 func _ready():
+	if DIFICULTY.choosen_dificulty == DIFICULTY.dificulty.CASUAL:
+		lifes = 999
+	
 	$Lifes.text = "Lifes: " + str(lifes)
 	$Transition.play("event1")
 

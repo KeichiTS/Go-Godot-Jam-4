@@ -18,13 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 GAME="*res://scenes/GAME.tscn"
+DIFICULTY="*res://scripts/DIFICULTY.gd"
 
 [display]
 
 window/size/viewport_width=256
 window/size/viewport_height=128
-window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -83,6 +84,6 @@ restart_level={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
