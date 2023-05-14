@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b08edfre7tjm8"]
+[gd_scene load_steps=15 format=3 uid="uid://b08edfre7tjm8"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mne0d"]
 [ext_resource type="Texture2D" uid="uid://dsiqup55ohuvo" path="res://assets/sprites_asepsprite/player.png" id="2_xh44d"]
 [ext_resource type="Texture2D" uid="uid://dylqvexldrpme" path="res://assets/sprites_asepsprite/player_carry.png" id="3_3jaf4"]
+[ext_resource type="AudioStream" uid="uid://d16h3hk4pcuik" path="res://sfx/jump.wav" id="4_pr4wm"]
+[ext_resource type="AudioStream" uid="uid://cldhswqyrmwfj" path="res://sfx/fail.wav" id="5_wnwq6"]
+[ext_resource type="AudioStream" uid="uid://dkw4l74dpymn8" path="res://sfx/collect2.wav" id="6_kqi5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u7tt"]
 size = Vector2(7, 15)
@@ -62,10 +65,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sfx/die:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qwaik"]
 resource_name = "dying"
-length = 0.6
+length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -89,6 +104,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 22, 21, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sfx/die:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bxvqh"]
@@ -204,6 +231,17 @@ autostart = true
 offset_right = 10.0
 offset_bottom = 26.0
 text = "5"
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="jump" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("4_pr4wm")
+
+[node name="die" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("5_wnwq6")
+
+[node name="item" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("6_kqi5w")
 
 [connection signal="body_entered" from="item_detector" to="." method="_on_item_detector_body_entered"]
 [connection signal="body_exited" from="item_detector" to="." method="_on_item_detector_body_exited"]

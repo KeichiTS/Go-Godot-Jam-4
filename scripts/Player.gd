@@ -22,6 +22,8 @@ var object = preload('res://scenes/carrying_object.tscn')
 
 var time = 5
 
+var play_dead_sound = false 
+
 func _ready():
 	$anim.play("idle")
 	$carrying_sprite.hide()
@@ -36,23 +38,25 @@ func _physics_process(delta):
 	_restart_level()
 
 func _move(x):
-	if not is_on_floor():
-		move_status = on_air
-		velocity.y += gravity * x
-	else: 
-		move_status = on_ground
-		
-	if status == alive:
-		if Input.is_action_just_pressed("ui_jump") and is_on_floor():
-			velocity.y = jump_velocity
+	if status != dead:
+		if not is_on_floor():
+			move_status = on_air
+			velocity.y += gravity * x
+		else: 
+			move_status = on_ground
+			
+		if status == alive:
+			if Input.is_action_just_pressed("ui_jump") and is_on_floor():
+				$Sfx/jump.play()
+				velocity.y = jump_velocity
 
-		var direction = Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+			var direction = Input.get_axis("ui_left", "ui_right")
+			if direction:
+				velocity.x = direction * speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed)
 
-	move_and_slide()
+		move_and_slide()
 	
 func _chance_anim():
 	if status == alive:
@@ -73,9 +77,11 @@ func _chance_anim():
 				$carrying_sprite.scale.x = -0.5
 
 func _die():
-	if status == dead:
+	if status == dead and play_dead_sound == false:
+		play_dead_sound = true
 		if get_parent().has_method("reload"):
 			$anim.play("dying")
+			await $anim.animation_finished
 			get_parent().reload()
 			var body = dead_body.instantiate()
 			body.global_position = global_position
@@ -89,11 +95,11 @@ func _die():
 func _restart():
 	if Input.is_action_just_pressed('restart'):
 		status = dead
-		
 
 func _holding_status():
 	if can_hold and !is_holding:
 		if Input.is_action_just_pressed('carrying'):
+			$Sfx/item.play()
 			is_holding = true
 			$sprite.hide()
 			$carrying_sprite.show()

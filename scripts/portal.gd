@@ -9,6 +9,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.is_in_group('player'):
+		$Sfx.play()
 		body.queue_free()
 		match level:
 			0:
@@ -110,7 +111,7 @@ func _on_body_entered(body):
 				_play_anim()
 				$anim.play("event")
 				await $anim.animation_finished
-				get_tree().change_scene_to_file("res://scenes/Levels/level_1.tscn")
+				get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 
 func _play_anim():
 	get_parent().change_level()

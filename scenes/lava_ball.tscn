@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c42ga5jvyv3qa"]
+[gd_scene load_steps=7 format=3 uid="uid://c42ga5jvyv3qa"]
 
 [ext_resource type="Script" path="res://scripts/Lava_ball.gd" id="1_fru7i"]
+[ext_resource type="AudioStream" uid="uid://yoxv0fn85d0g" path="res://sfx/echosplosion.wav" id="2_hy3va"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcsg"]
 size = Vector2(8, 8)
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ytm57"]
 resource_name = "event"
@@ -35,6 +48,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -48), Vector2(0, -48), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2c28s"]
@@ -61,5 +86,9 @@ shape = SubResource("RectangleShape2D_5wcsg")
 libraries = {
 "": SubResource("AnimationLibrary_2c28s")
 }
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hy3va")
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,6 +10,7 @@ func _on_body_entered(body):
 		body._holding_status()
 		
 	if body.is_in_group('objects'):
+		$Sfx.play()
 		opening = true
 		body.queue_free()
 		if get_parent().is_in_group('door'):

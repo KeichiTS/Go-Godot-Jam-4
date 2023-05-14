@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbyhd656gfsxo"]
+
+[ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="1_jwoeb"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pe2ft"]
+[ext_resource type="AudioStream" uid="uid://dup40w6o07ctu" path="res://sfx/collect5.wav" id="3_vxdn2"]
+
+[sub_resource type="Animation" id="Animation_fymlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_4tgju"]
+resource_name = "event1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 64), Vector2(384, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_kl0fg"]
+resource_name = "event2"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(384, 64), Vector2(128, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq7o3"]
+_data = {
+"RESET": SubResource("Animation_fymlb"),
+"event1": SubResource("Animation_4tgju"),
+"event2": SubResource("Animation_kl0fg")
+}
+
+[node name="Title_screen" type="Node"]
+script = ExtResource("1_pe2ft")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(128, 64)
+texture = ExtResource("1_jwoeb")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 163.0
+offset_bottom = 58.0
+text = "Norvana"
+
+[node name="Play!" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 88.0
+offset_right = 149.0
+offset_bottom = 119.0
+text = "Play!"
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vxdn2")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qq7o3")
+}
+
+[node name="Game_logo" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-128, 64)
+texture = ExtResource("1_jwoeb")
+
+[connection signal="pressed" from="Play!" to="." method="_on_play_pressed"]

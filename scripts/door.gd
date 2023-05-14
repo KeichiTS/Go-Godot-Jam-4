@@ -11,6 +11,7 @@ func _process(delta):
 		open_status = true
 	
 	elif door_open == false and open_status == true : 
+	
 		$anim.play('closing')
 		await $anim.animation_finished
 		open_status = false

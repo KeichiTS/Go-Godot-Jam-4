@@ -11,6 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://dwx257vpuij3e" path="res://scenes/carrying_object.tscn" id="9_f8vpo"]
 [ext_resource type="Texture2D" uid="uid://bpp7wpp6nawep" path="res://assets/Background.png" id="10_w1fwt"]
 
+[sub_resource type="Animation" id="Animation_fymlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game_logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 64)]
+}
+
 [sub_resource type="Animation" id="Animation_4tgju"]
 resource_name = "event1"
 length = 0.5
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(128, 64), Vector2(384, 64)]
-}
-
-[sub_resource type="Animation" id="Animation_fymlb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Game_logo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-128, 64)]
 }
 
 [sub_resource type="Animation" id="Animation_kl0fg"]

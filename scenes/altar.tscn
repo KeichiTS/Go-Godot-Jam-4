@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ehhd7hk2e4c1"]
+[gd_scene load_steps=4 format=3 uid="uid://ehhd7hk2e4c1"]
 
 [ext_resource type="Script" path="res://scripts/Altar.gd" id="1_fep1k"]
+[ext_resource type="AudioStream" uid="uid://cqkj2dwk1sj7a" path="res://sfx/Powerup.wav" id="2_thg5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr244"]
 size = Vector2(16, 16)
@@ -20,6 +21,10 @@ offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
 color = Color(0.890196, 0.921569, 0, 1)
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_thg5v")
+volume_db = -15.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
