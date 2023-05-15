@@ -126,7 +126,7 @@ libraries = {
 
 [node name="Game_logo" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(-128, 64)
+position = Vector2(128, 64)
 texture = ExtResource("2_w7sfm")
 
 [node name="Title" type="Label" parent="Game_logo"]

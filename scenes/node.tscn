@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://trnef2gk5nfi"]
+
+[ext_resource type="Texture2D" uid="uid://dilums4m3ackk" path="res://assets/splash screen.png" id="1_jnajm"]
+[ext_resource type="FontFile" uid="uid://duirdr5sp2vk2" path="res://font/minimal5x7.ttf" id="2_rqgw3"]
+
+[node name="Node" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(144, 120)
+texture = ExtResource("1_jnajm")
+
+[node name="Title" type="Label" parent="."]
+offset_top = 20.0
+offset_right = 350.0
+offset_bottom = 80.0
+theme_override_colors/font_outline_color = Color(0, 0.278431, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_rqgw3")
+theme_override_font_sizes/font_size = 80
+text = "Tomb Escape"
+horizontal_alignment = 1
+vertical_alignment = 1

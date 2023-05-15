@@ -5,7 +5,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Transition.play("event1")
+	#$Transition.play("event1")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
